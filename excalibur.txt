@@ -1,0 +1,54 @@
+1(1)5
+1(1)5
+
+
+/post files ->
+https://github.com/camelot-dev/excalibur/blob/master/excalibur/www/views.py#L34
+https://github.com/camelot-dev/excalibur/blob/master/excalibur/www/views.py#L79
+
+command = "excalibur run --task {} --uuid {}".format("split", file_id)
+command_as_list = command.split(" ")
+executor = get_default_executor()
+executor.execute_async(command_as_list)
+
+
+(https://github.com/camelot-dev/excalibur/blob/master/excalibur/executors/sequential_executor.py)
+
+def execute_command(command):
+    subprocess.check_call(command, stderr=subprocess.STDOUT, close_fds=True)
+    ....
+
+class SequentialExecutor(BaseExecutor):
+    def start(self):
+        self.pool = ProcessPoolExecutor(1)
+
+    def execute_async(self, command):
+        self.pool.submit(execute_command, command) ((['excalibur', 'run', '--task', 'split', '--uuid', 'ede848ac-c9b4-482e-821f-c8fe34310542']))
+
+
+https://github.com/camelot-dev/excalibur/blob/master/excalibur/cli.py#L19
+https://github.com/camelot-dev/excalibur/blob/master/excalibur/cli.py#L80
+
+def _run(task_name, task_id):
+    task_bag = {"split": split, "extract": extract}
+    python_callable = task_bag[task_name]
+    task = PythonOperator(python_callable, op_args=[task_id])
+    task.execute()
+
+https://github.com/camelot-dev/excalibur/blob/master/excalibur/operators/python_operator.py
+
+
+class PythonOperator(BaseOperator):
+    def __init__(self, python_callable, op_args=None, op_kwargs=None):
+        self.python_callable = python_callable
+        self.op_args = op_args or []
+        self.op_kwargs = op_kwargs or {}
+
+    def execute(self):
+        self.execute_callable()
+
+    def execute_callable(self):
+        self.python_callable(*self.op_args, **self.op_kwargs)
+
+
+(https://github.com/camelot-dev/excalibur/blob/master/excalibur/tasks.py#L18)
