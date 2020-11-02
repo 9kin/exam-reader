@@ -20,34 +20,43 @@ exam-reader
 
 
 
-exam-reader
 
-.. image:: https://i.imgur.com/wSmq5Ko.png
 
-Основная цель программы извлечь и обработать данные из файлов.
+exam-reader -  программа для извлечения и обработки данных из файлов и формирования разных отсчётов.
 
-Файлы протоколов проверки результатов ЕГЭ/ОГЭ/ВПР с расширения ``pdf`` представляют собой общую своднуную таблицу по образовательной организации.
+Файлы протоколов проверки результатов ЕГЭ/ОГЭ/ВПР с расширением ``pdf`` представляют собой общую своднуную таблицу по образовательной организации.
+
+Применение
+===========
+
+Протоколы приходят каждый год и в огромном количестве.
+
+Учителя должны отвечать минестерству образования различную статистику (по школе, по учителям, пл предметам, лично по ученикам).
+
+На это тратится очень много времени, потому что всё надо делать всё вручную.
 
 .. figure:: https://i.imgur.com/qePOzLL.png
         :align: center
 
-        Пример `получен с помощью ghostscript <https://www.ghostscript.com/>`_
+        Пример картинка `полученая с помощью ghostscript <https://www.ghostscript.com>`_
 
+Принцип работы
+==================
 
+.. image:: https://i.imgur.com/wSmq5Ko.png
 
-* Free software: MIT license
+Зависимости (библиотеки).
+
+* `camelot <https://github.com/camelot-dev/camelot>`_ извлечение таблиц PDF. Единственная библиотека которая распознаёт данный вид таблиц правильно. `Сравнение с другими библиотеками и инструментами для извлечения таблиц PDF. <https://github.com/camelot-dev/camelot/wiki/Comparison-with-other-PDF-Table-Extraction-libraries-and-tools>`_
+* `PyMupdf <https://github.com/pymupdf/PyMuPDF>`_ привязки Python для библиотеки рендеринга `MuPDF <https://mupdf.com>`_. Основная функция (которой нет у подобных библитек) `извлечение блоков текста <https://pymupdf.readthedocs.io/en/latest/textpage.html#TextPage.extractBLOCKS>`_.
+* `peewee <https://github.com/coleifer/peewee>`_ очень удобная ORM (поддерживает postgres).
+* `flask  <https://github.com/pallets/flask>`_  микро-фреймворк для создания веб-приложений.
+
+Процесс разработки
+========================
+
+Уже добавлена обработка pdf файлов с помощью `multiprocessing JoinableQueue <https://docs.python.org/3/library/multiprocessing.html#multiprocessing.JoinableQueue>`_ camelot и PyMupdf.
+
+----------------------------
+
 * Documentation: https://exam-reader.readthedocs.io.
-
-
-Features
---------
-
-* TODO
-
-Credits
--------
-
-This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
-
-.. _Cookiecutter: https://github.com/audreyr/cookiecutter
-.. _`audreyr/cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage

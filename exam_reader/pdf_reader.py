@@ -1,6 +1,4 @@
 from multiprocessing import JoinableQueue, Pool, Process
-from pathlib import Path
-
 import camelot
 import fitz  # mupdf
 import pandas as pd
@@ -57,8 +55,25 @@ def extract_pdf(filepath):
         )
     img.save("tmp.png")
 
+def process_job(q):
+    while True:
+        next_job = q.get()
+        next_job[0](*next_job[1:])
+        q.task_done()
 
-def main(dir=Path(__file__).resolve()):
-    pdf_documents = [str(dir.joinpath("ege2016rus.pdf"))] * 1
-    with Pool(3) as p:
-        print(p.map(extract_pdf, pdf_documents))
+
+
+def main(dir):
+    pdf_documents = [str(dir.joinpath("ege2016rus.pdf"))] * 5
+    #with Pool(3) as p:
+    #    print(p.map(extract_pdf, pdf_documents))
+    queue = JoinableQueue()
+    for document in pdf_documents:
+        queue.put((extract_pdf, document))
+    workers = [Process(target=process_job, args=(queue,)),
+               Process(target=process_job, args=(queue,)),
+               Process(target=process_job, args=(queue,))]
+    for worker in workers:
+        worker.daemon = True
+        worker.start()
+    queue.join()
