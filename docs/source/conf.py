@@ -1,10 +1,5 @@
-import os
-import sys
+pygments_style = 'sphinx'
 
-sys.path.insert(0, os.path.abspath("../.."))
-
-
-# pygments_style = "monokai"
 extensions = ["sphinx.ext.autodoc", "sphinx_autodoc_typehints"]
 html_theme = "alabaster"
 html_theme_options = {
@@ -23,5 +18,5 @@ author = "9kin"
 extensions = []
 # templates_path = ["_templates"]
 # exclude_patterns = []
-# html_static_path = ["static"]
+html_static_path = ["static"]
 # html_theme_options = {"logo_only": True}
