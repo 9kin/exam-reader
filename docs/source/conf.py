@@ -1,4 +1,4 @@
-pygments_style = 'sphinx'
+pygments_style = "sphinx"
 
 extensions = ["sphinx.ext.autodoc", "sphinx_autodoc_typehints"]
 html_theme = "alabaster"

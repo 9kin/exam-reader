@@ -1,0 +1,65 @@
+database
+========
+
+PQueue
++-------+---+-----+
+|columns|id |file |
+|type   |int|str  |
+|example|0  |1.pdf|
++-------+---+-----+
+
+
+Exam
++-------+---+---------+-----+-------+--------+----------+
+|columns|id |student  |date |result |subject |exam_type |
+|type   |int|int (id) |date |[0.100]|int     |0         |
+|example|0  |1        |.....|98     |0       |0         |
++-------+---+---------+-----+-------+--------+----------+
+
+subject - предмет (KV) мат - 0 рус - 1 ....
+exam_type - тип экзамена 0..11 впр 12 ОГЭ 13 ЕГЭ
+
+
+Student
++-------+---+-----+--------+------------+
+|columns|id |name |surname |second_name |
+|type   |int|str  |str     |str         |
+|example|0  |Ivan |Ivan    |Ivanovich   |
++-------+---+-----+--------+------------+
+
+Group (половина 1, 2) и БУКВА
++-------+---+------+-----+----------------+
+|columns|id |letter|group|first_class     |
+|type   |int|char  |int  |date            |
+|example|0  | A    |1    |date(01.09.2012)|
++-------+---+------+-----+----------------+
+
+Relationship
++-------+---+--------+--------+----+------+
+|columns|id |student |group   |date|event |
+|type   |int|int (id)|int (id)|date|bool  |
+|example|0  |0       |0       |....|true  |
++-------+---+--------+--------+----+------+
+event
+* true - add student to class
+* false - delete student from class
+
+Условно события (на пседо языке):
+
+* add(student, group, date):
+	if student not in db:
+		Student.insert(student)
+	if group not in db:
+		Group.insert(group)
+	Relationship.insert(student=student.id, group=group.id, date=date, event=True)
+
+* remove(student, group, date):
+	Relationship.insert(student=student.id, group=group.id, date=date, event=False)
+
+* change(student, group, date)
+	result = Relationship.find_last(student)
+	if result.event:
+		Relationship.insert(student=student.id, group=result.group, date=date, event=False)
+		Relationship.insert(student=student.id, group=group.id, date=date, event=True)
+	else:
+		exception

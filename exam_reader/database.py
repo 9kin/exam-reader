@@ -1,4 +1,4 @@
-from peewee import Model, CharField
+from peewee import CharField, Model, SmallIntegerField
 from playhouse.postgres_ext import PostgresqlExtDatabase
 
 # https://stackoverflow.com/a/26735105
@@ -8,16 +8,16 @@ from playhouse.postgres_ext import PostgresqlExtDatabase
 # sudo service postgresql restart
 # psql -U exam postgres
 
-db = PostgresqlExtDatabase('postgres', user='exam', password='1234')
+db = PostgresqlExtDatabase("postgres", user="exam", password="1234")
+
 
 class BaseModel(Model):
     """A base model that will use our Postgresql database"""
+
     class Meta:
         database = db
 
-class Tmp(BaseModel):
-    username = CharField()
 
-
-db.connect()
-db.create_tables([Tmp])
+class PQueue(BaseModel):
+    path = CharField()
+    status = SmallIntegerField()
