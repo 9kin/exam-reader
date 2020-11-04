@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="terminal" baseProfile="full" viewBox="0 0 640 53" width="640" version="1.1">
+    <defs>
+        <termtosvg:template_settings xmlns:termtosvg="https://github.com/nbedos/termtosvg">
+            <termtosvg:screen_geometry columns="80" rows="3"/>
+            <termtosvg:animation type="css"/>
+        </termtosvg:template_settings>
+        <style type="text/css" id="generated-style"><![CDATA[#screen {
+                font-family: 'DejaVu Sans Mono', monospace;
+                font-style: normal;
+                font-size: 14px;
+            }
+
+        text {
+            dominant-baseline: text-before-edge;
+            white-space: pre;
+        }
+    
+            :root {
+                --animation-duration: 5719ms;
+            }
+
+            @keyframes roll {
+                0.000%{transform:translateY(0px)}
+0.874%{transform:translateY(-68px)}
+1.749%{transform:translateY(-136px)}
+2.623%{transform:translateY(-204px)}
+3.497%{transform:translateY(-272px)}
+4.371%{transform:translateY(-340px)}
+5.246%{transform:translateY(-408px)}
+6.120%{transform:translateY(-476px)}
+7.012%{transform:translateY(-544px)}
+7.886%{transform:translateY(-612px)}
+8.760%{transform:translateY(-680px)}
+9.635%{transform:translateY(-748px)}
+10.509%{transform:translateY(-816px)}
+11.383%{transform:translateY(-884px)}
+12.257%{transform:translateY(-952px)}
+13.132%{transform:translateY(-1020px)}
+14.006%{transform:translateY(-1088px)}
+14.898%{transform:translateY(-1156px)}
+15.772%{transform:translateY(-1224px)}
+16.646%{transform:translateY(-1292px)}
+17.521%{transform:translateY(-1360px)}
+18.395%{transform:translateY(-1428px)}
+19.269%{transform:translateY(-1496px)}
+20.143%{transform:translateY(-1564px)}
+21.018%{transform:translateY(-1632px)}
+21.909%{transform:translateY(-1700px)}
+22.784%{transform:translateY(-1768px)}
+23.658%{transform:translateY(-1836px)}
+24.532%{transform:translateY(-1904px)}
+25.407%{transform:translateY(-1972px)}
+26.281%{transform:translateY(-2040px)}
+27.155%{transform:translateY(-2108px)}
+39.850%{transform:translateY(-2176px)}
+41.616%{transform:translateY(-2244px)}
+43.364%{transform:translateY(-2312px)}
+45.130%{transform:translateY(-2380px)}
+46.879%{transform:translateY(-2448px)}
+48.627%{transform:translateY(-2516px)}
+50.446%{transform:translateY(-2584px)}
+52.159%{transform:translateY(-2652px)}
+53.960%{transform:translateY(-2720px)}
+55.674%{transform:translateY(-2788px)}
+57.423%{transform:translateY(-2856px)}
+59.189%{transform:translateY(-2924px)}
+60.955%{transform:translateY(-2992px)}
+62.703%{transform:translateY(-3060px)}
+64.452%{transform:translateY(-3128px)}
+66.200%{transform:translateY(-3196px)}
+67.949%{transform:translateY(-3264px)}
+69.715%{transform:translateY(-3332px)}
+71.481%{transform:translateY(-3400px)}
+73.230%{transform:translateY(-3468px)}
+75.013%{transform:translateY(-3536px)}
+76.849%{transform:translateY(-3604px)}
+78.598%{transform:translateY(-3672px)}
+80.521%{transform:translateY(-3740px)}
+82.514%{transform:translateY(-3808px)}
+100.000%{transform:translateY(-3808px)}
+            }
+
+            #screen_view {
+                animation-duration: 5719ms;
+                animation-iteration-count:infinite;
+                animation-name:roll;
+                animation-timing-function: steps(1,end);
+                animation-fill-mode: forwards;
+            }
+        ]]></style>
+        <style type="text/css" id="user-style">
+            /* The colors defined below are the default 16 colors used for rendering text of the terminal. Adjust
+               them as needed.
+               PowerShell colors based on https://en.wikipedia.org/wiki/ANSI_escape_code#Colors */
+            .foreground {fill: #cccccc;}
+            .background {fill: #0c0c0c;}
+            .color0 {fill: #0c0c0c;}
+            .color1 {fill: #c50f1f;}
+            .color2 {fill: #13a10e;}
+            .color3 {fill: #c19c00;}
+            .color4 {fill: #0037da;}
+            .color5 {fill: #881798;}
+            .color6 {fill: #3a96dd;}
+            .color7 {fill: #cccccc;}
+            .color8 {fill: #767676;}
+            .color9 {fill: #e74856;}
+            .color10 {fill: #16c60c;}
+            .color11 {fill: #f9f1a5;}
+            .color12 {fill: #3b78ff;}
+            .color13 {fill: #b4009e;}
+            .color14 {fill: #61d6d6;}
+            .color15 {fill: #f2f2f2;}
+        </style>
+    </defs>
+    <svg id="screen" width="640" height="51" viewBox="0 0 640 51" preserveAspectRatio="xMidYMin slice">
+    <rect class="background" height="100%" width="100%" x="0" y="0"/><defs><g id="g1"><text x="0" textLength="24" class="foreground">&#10095; e</text><text x="24" textLength="8" class="background"> </text></g><g id="g2"><text x="0" textLength="32" class="foreground">&#10095; ex</text><text x="32" textLength="8" class="background"> </text></g><g id="g3"><text x="0" textLength="40" class="foreground">&#10095; exa</text><text x="40" textLength="8" class="background"> </text></g><g id="g4"><text x="0" textLength="48" class="foreground">&#10095; exam</text><text x="48" textLength="8" class="background"> </text></g><g id="g5"><text x="0" textLength="56" class="foreground">&#10095; exam_</text><text x="56" textLength="8" class="background"> </text></g><g id="g6"><text x="0" textLength="64" class="foreground">&#10095; exam_r</text><text x="64" textLength="8" class="background"> </text></g><g id="g7"><text x="0" textLength="72" class="foreground">&#10095; exam_re</text><text x="72" textLength="8" class="background"> </text></g><g id="g8"><text x="0" textLength="80" class="foreground">&#10095; exam_rea</text><text x="80" textLength="8" class="background"> </text></g><g id="g9"><text x="0" textLength="88" class="foreground">&#10095; exam_read</text><text x="88" textLength="8" class="background"> </text></g><g id="g10"><text x="0" textLength="96" class="foreground">&#10095; exam_reade</text><text x="96" textLength="8" class="background"> </text></g><g id="g11"><text x="0" textLength="104" class="foreground">&#10095; exam_reader</text><text x="104" textLength="8" class="background"> </text></g><g id="g12"><text x="0" textLength="112" class="foreground">&#10095; exam_reader </text><text x="112" textLength="8" class="background"> </text></g><g id="g13"><text x="0" textLength="120" class="foreground">&#10095; exam_reader w</text><text x="120" textLength="8" class="background"> </text></g><g id="g14"><text x="0" textLength="128" class="foreground">&#10095; exam_reader wo</text><text x="128" textLength="8" class="background"> </text></g><g id="g15"><text x="0" textLength="136" class="foreground">&#10095; exam_reader wor</text><text x="136" textLength="8" class="background"> </text></g><g id="g16"><text x="0" textLength="144" class="foreground">&#10095; exam_reader work</text><text x="144" textLength="8" class="background"> </text></g><g id="g17"><text x="0" textLength="152" class="foreground">&#10095; exam_reader worke</text><text x="152" textLength="8" class="background"> </text></g><g id="g18"><text x="0" textLength="160" class="foreground">&#10095; exam_reader worker</text><text x="160" textLength="8" class="background"> </text></g><g id="g19"><text x="0" textLength="168" class="foreground">&#10095; exam_reader worker </text><text x="168" textLength="8" class="background"> </text></g><g id="g20"><text x="0" textLength="176" class="foreground">&#10095; exam_reader worker -</text><text x="176" textLength="8" class="background"> </text></g><g id="g21"><text x="0" textLength="184" class="foreground">&#10095; exam_reader worker -c</text><text x="184" textLength="8" class="background"> </text></g><g id="g22"><text x="0" textLength="192" class="foreground">&#10095; exam_reader worker -c </text><text x="192" textLength="8" class="background"> </text></g><g id="g23"><text x="0" textLength="200" class="foreground">&#10095; exam_reader worker -c 2</text><text x="200" textLength="8" class="background"> </text></g><g id="g24"><text x="0" textLength="208" class="foreground">&#10095; exam_reader worker -c 2 </text><text x="208" textLength="8" class="background"> </text></g><g id="g25"><text x="0" textLength="216" class="foreground">&#10095; exam_reader worker -c 2 -</text><text x="216" textLength="8" class="background"> </text></g><g id="g26"><text x="0" textLength="224" class="foreground">&#10095; exam_reader worker -c 2 -d</text><text x="224" textLength="8" class="background"> </text></g><g id="g27"><text x="0" textLength="232" class="foreground">&#10095; exam_reader worker -c 2 -d </text><text x="232" textLength="8" class="background"> </text></g><g id="g28"><text x="0" textLength="240" class="foreground">&#10095; exam_reader worker -c 2 -d -</text><text x="240" textLength="8" class="background"> </text></g><g id="g29"><text x="0" textLength="248" class="foreground">&#10095; exam_reader worker -c 2 -d -f</text><text x="248" textLength="8" class="background"> </text></g><g id="g30"><text x="0" textLength="256" class="foreground">&#10095; exam_reader worker -c 2 -d -f </text><text x="256" textLength="8" class="background"> </text></g><g id="g31"><text x="0" textLength="264" class="foreground">&#10095; exam_reader worker -c 2 -d -f 2</text><text x="264" textLength="8" class="background"> </text></g><g id="g32"><text x="0" textLength="264" class="foreground">&#10095; exam_reader worker -c 2 -d -f 2</text></g><g id="g33"><text x="0" textLength="8" class="background"> </text></g><g id="g34"><text x="0" textLength="72" class="foreground">0%|?it/s|</text><text x="72" textLength="456" class="color1">                                                         </text><text x="528" textLength="112" class="foreground">| 0/2 [00:00&lt;?</text><text x="640" textLength="8" class="background"> </text></g><g id="g35"><text x="0" textLength="72" class="foreground">0%|?it/s|</text><text x="72" textLength="456" class="color1">                                                         </text><text x="528" textLength="112" class="foreground">| 0/2 [00:01&lt;?</text><text x="640" textLength="8" class="background"> </text></g><g id="g36"><text x="0" textLength="72" class="foreground">0%|?it/s|</text><text x="72" textLength="456" class="color1">                                                         </text><text x="528" textLength="112" class="foreground">| 0/2 [00:02&lt;?</text><text x="640" textLength="8" class="background"> </text></g><g id="g37"><text x="0" textLength="112" class="foreground">50%| 9.93it/s|</text><text x="112" textLength="384" class="color1">&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;                        </text><text x="496" textLength="144" class="foreground">| 1/2 [00:02&lt;00:00</text><text x="640" textLength="8" class="background"> </text></g><g id="g38"><text x="0" textLength="120" class="foreground">100%| 1.16s/it|</text><text x="120" textLength="376" class="color1">&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;</text><text x="496" textLength="144" class="foreground">| 2/2 [00:02&lt;00:00</text></g><g id="g39"><text x="0" textLength="56" class="foreground">took 3s</text><text x="56" textLength="8" class="background"> </text></g></defs><g id="screen_view"><g><rect x="24" y="0" width="8" height="17" class="foreground"/><use xlink:href="#g1" y="0"/></g><g><rect x="32" y="68" width="8" height="17" class="foreground"/><use xlink:href="#g2" y="68"/></g><g><rect x="40" y="136" width="8" height="17" class="foreground"/><use xlink:href="#g3" y="136"/></g><g><rect x="48" y="204" width="8" height="17" class="foreground"/><use xlink:href="#g4" y="204"/></g><g><rect x="56" y="272" width="8" height="17" class="foreground"/><use xlink:href="#g5" y="272"/></g><g><rect x="64" y="340" width="8" height="17" class="foreground"/><use xlink:href="#g6" y="340"/></g><g><rect x="72" y="408" width="8" height="17" class="foreground"/><use xlink:href="#g7" y="408"/></g><g><rect x="80" y="476" width="8" height="17" class="foreground"/><use xlink:href="#g8" y="476"/></g><g><rect x="88" y="544" width="8" height="17" class="foreground"/><use xlink:href="#g9" y="544"/></g><g><rect x="96" y="612" width="8" height="17" class="foreground"/><use xlink:href="#g10" y="612"/></g><g><rect x="104" y="680" width="8" height="17" class="foreground"/><use xlink:href="#g11" y="680"/></g><g><rect x="112" y="748" width="8" height="17" class="foreground"/><use xlink:href="#g12" y="748"/></g><g><rect x="120" y="816" width="8" height="17" class="foreground"/><use xlink:href="#g13" y="816"/></g><g><rect x="128" y="884" width="8" height="17" class="foreground"/><use xlink:href="#g14" y="884"/></g><g><rect x="136" y="952" width="8" height="17" class="foreground"/><use xlink:href="#g15" y="952"/></g><g><rect x="144" y="1020" width="8" height="17" class="foreground"/><use xlink:href="#g16" y="1020"/></g><g><rect x="152" y="1088" width="8" height="17" class="foreground"/><use xlink:href="#g17" y="1088"/></g><g><rect x="160" y="1156" width="8" height="17" class="foreground"/><use xlink:href="#g18" y="1156"/></g><g><rect x="168" y="1224" width="8" height="17" class="foreground"/><use xlink:href="#g19" y="1224"/></g><g><rect x="176" y="1292" width="8" height="17" class="foreground"/><use xlink:href="#g20" y="1292"/></g><g><rect x="184" y="1360" width="8" height="17" class="foreground"/><use xlink:href="#g21" y="1360"/></g><g><rect x="192" y="1428" width="8" height="17" class="foreground"/><use xlink:href="#g22" y="1428"/></g><g><rect x="200" y="1496" width="8" height="17" class="foreground"/><use xlink:href="#g23" y="1496"/></g><g><rect x="208" y="1564" width="8" height="17" class="foreground"/><use xlink:href="#g24" y="1564"/></g><g><rect x="216" y="1632" width="8" height="17" class="foreground"/><use xlink:href="#g25" y="1632"/></g><g><rect x="224" y="1700" width="8" height="17" class="foreground"/><use xlink:href="#g26" y="1700"/></g><g><rect x="232" y="1768" width="8" height="17" class="foreground"/><use xlink:href="#g27" y="1768"/></g><g><rect x="240" y="1836" width="8" height="17" class="foreground"/><use xlink:href="#g28" y="1836"/></g><g><rect x="248" y="1904" width="8" height="17" class="foreground"/><use xlink:href="#g29" y="1904"/></g><g><rect x="256" y="1972" width="8" height="17" class="foreground"/><use xlink:href="#g30" y="1972"/></g><g><rect x="264" y="2040" width="8" height="17" class="foreground"/><use xlink:href="#g31" y="2040"/></g><g><use xlink:href="#g32" y="2108"/><rect x="0" y="2125" width="8" height="17" class="foreground"/><use xlink:href="#g33" y="2125"/></g><g><use xlink:href="#g32" y="2176"/><rect x="640" y="2193" width="8" height="17" class="foreground"/><use xlink:href="#g34" y="2193"/></g><g><use xlink:href="#g32" y="2244"/><rect x="640" y="2261" width="8" height="17" class="foreground"/><use xlink:href="#g34" y="2261"/></g><g><use xlink:href="#g32" y="2312"/><rect x="640" y="2329" width="8" height="17" class="foreground"/><use xlink:href="#g34" y="2329"/></g><g><use xlink:href="#g32" y="2380"/><rect x="640" y="2397" width="8" height="17" class="foreground"/><use xlink:href="#g34" y="2397"/></g><g><use xlink:href="#g32" y="2448"/><rect x="640" y="2465" width="8" height="17" class="foreground"/><use xlink:href="#g34" y="2465"/></g><g><use xlink:href="#g32" y="2516"/><rect x="640" y="2533" width="8" height="17" class="foreground"/><use xlink:href="#g34" y="2533"/></g><g><use xlink:href="#g32" y="2584"/><rect x="640" y="2601" width="8" height="17" class="foreground"/><use xlink:href="#g34" y="2601"/></g><g><use xlink:href="#g32" y="2652"/><rect x="640" y="2669" width="8" height="17" class="foreground"/><use xlink:href="#g34" y="2669"/></g><g><use xlink:href="#g32" y="2720"/><rect x="640" y="2737" width="8" height="17" class="foreground"/><use xlink:href="#g34" y="2737"/></g><g><use xlink:href="#g32" y="2788"/><rect x="640" y="2805" width="8" height="17" class="foreground"/><use xlink:href="#g34" y="2805"/></g><g><use xlink:href="#g32" y="2856"/><rect x="640" y="2873" width="8" height="17" class="foreground"/><use xlink:href="#g35" y="2873"/></g><g><use xlink:href="#g32" y="2924"/><rect x="640" y="2941" width="8" height="17" class="foreground"/><use xlink:href="#g35" y="2941"/></g><g><use xlink:href="#g32" y="2992"/><rect x="640" y="3009" width="8" height="17" class="foreground"/><use xlink:href="#g35" y="3009"/></g><g><use xlink:href="#g32" y="3060"/><rect x="640" y="3077" width="8" height="17" class="foreground"/><use xlink:href="#g35" y="3077"/></g><g><use xlink:href="#g32" y="3128"/><rect x="640" y="3145" width="8" height="17" class="foreground"/><use xlink:href="#g35" y="3145"/></g><g><use xlink:href="#g32" y="3196"/><rect x="640" y="3213" width="8" height="17" class="foreground"/><use xlink:href="#g35" y="3213"/></g><g><use xlink:href="#g32" y="3264"/><rect x="640" y="3281" width="8" height="17" class="foreground"/><use xlink:href="#g35" y="3281"/></g><g><use xlink:href="#g32" y="3332"/><rect x="640" y="3349" width="8" height="17" class="foreground"/><use xlink:href="#g35" y="3349"/></g><g><use xlink:href="#g32" y="3400"/><rect x="640" y="3417" width="8" height="17" class="foreground"/><use xlink:href="#g35" y="3417"/></g><g><use xlink:href="#g32" y="3468"/><rect x="640" y="3485" width="8" height="17" class="foreground"/><use xlink:href="#g35" y="3485"/></g><g><use xlink:href="#g32" y="3536"/><rect x="640" y="3553" width="8" height="17" class="foreground"/><use xlink:href="#g36" y="3553"/></g><g><use xlink:href="#g32" y="3604"/><rect x="640" y="3621" width="8" height="17" class="foreground"/><use xlink:href="#g36" y="3621"/></g><g><use xlink:href="#g32" y="3672"/><rect x="640" y="3689" width="8" height="17" class="foreground"/><use xlink:href="#g37" y="3689"/></g><g><use xlink:href="#g32" y="3740"/><use xlink:href="#g38" y="3757"/><rect x="0" y="3774" width="8" height="17" class="foreground"/><use xlink:href="#g33" y="3774"/></g><g><use xlink:href="#g32" y="3808"/><use xlink:href="#g38" y="3825"/><rect x="56" y="3842" width="8" height="17" class="foreground"/><use xlink:href="#g39" y="3842"/></g></g></svg>
+</svg>

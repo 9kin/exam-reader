@@ -18,6 +18,6 @@ class BaseModel(Model):
         database = db
 
 
-class PQueue(BaseModel):
+class Job(BaseModel):
     path = CharField()
     status = SmallIntegerField()

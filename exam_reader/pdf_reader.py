@@ -1,31 +1,15 @@
-from multiprocessing import JoinableQueue, Process, Queue
-from pathlib import Path
+from multiprocessing import JoinableQueue, Process, Queue, Value
 
 import camelot
-import fitz  # mupdf
+import fitz
 import pandas as pd
 from PIL import Image, ImageDraw
 
-from .database import PQueue, db
+from .bar_utils import Bar
+from .database import Job, db
+from .utils import simple_job
 
 C = 4.166106501051772
-
-
-def insert_test_files():
-    if db.is_closed():
-        db.connect()
-    dir = Path(__file__).resolve().parent.parent.joinpath("files")
-    db.drop_tables([PQueue])
-    db.create_tables([PQueue])
-
-    pdf_documents = []
-    for i in range(15):
-        pdf_documents.append(
-            PQueue(path=dir.joinpath("ege2016rus.pdf"), status=0)
-        )
-
-    with db.atomic():
-        PQueue.bulk_create(pdf_documents, batch_size=100)
 
 
 def blocks_without_table(blocks, table_bbox):
@@ -45,9 +29,12 @@ def blocks_without_table(blocks, table_bbox):
     return blocks
 
 
-def extract_pdf(filepath):
+def extract_pdf(job, debug):
+    if debug:
+        print(job.id, "start")
+
     tables = camelot.read_pdf(
-        filepath,
+        job.path,
         pages="all",
         split_text=True,
     )
@@ -56,7 +43,7 @@ def extract_pdf(filepath):
 
     img_array, table_bbox = tables[0]._image
 
-    doc = fitz.open(filepath)
+    doc = fitz.open(job.path)
     page = doc[0]
     blocks = blocks_without_table(
         page.getTextPage().extractBLOCKS(), table_bbox
@@ -74,67 +61,95 @@ def extract_pdf(filepath):
             outline=(255, 0, 0),
             width=3,
         )
-    # img.save("tmp.png")
-    print(filepath, "extracttion finished")
+
+    if debug:
+        print(job.id, "end")
 
 
-def process_job(queue, db_queue):
+def process_job(workers, queue, db_queue, debug):
     while True:
         job = queue.get()
 
-        extract_pdf(job.path)
-        job.status = 2
+        workers.do()
+        extract_pdf(job, debug)
+        workers.end()
 
+        job.status = 2
         db_queue.put(job)
         queue.task_done()
 
 
-def database_worker(workers_cnt, queue, db_queue):
-    while True:
+class Workers:
+    def __init__(self, workers_cnt, queue, db_queue, debug, bar):
+        self.workers = []
+        self.pending = Value("i", 0)
+        self.cnt = Value("i", 0)
+        self.bar = bar
+
+        for i in range(workers_cnt):
+            worker = Process(
+                target=process_job, args=(self, queue, db_queue, debug)
+            )
+            worker.daemon = True
+            worker.start()
+            self.workers.append(worker)
+
+    def do(self):
+        self.pending.value += 1
+
+    def end(self):
+        self.cnt.value += 1
+        self.pending.value -= 1
+
+    def __len__(self):
+        return len(self.workers)
+
+
+def pdf_workers(workers_count=2, debug=True, files=0):
+    if db.is_closed():
+        db.connect()
+
+    bar = Bar(files, debug=files != 0)
+
+    queue = JoinableQueue()
+    db_queue = Queue()
+    workers = Workers(workers_count, queue, db_queue, files == 0, bar)
+
+    Job.update(status=0).where(Job.status == 1).execute()
+
+    if files != 0:
+        condition = lambda: Job.select().where(Job.status != 2).count() > 0
+    else:
+        condition = lambda: True
+
+    while condition():
+        bar.update((workers.cnt.value - bar.val))
         if not db_queue.empty():
             jobs = []
             while not db_queue.empty():
                 q = db_queue.get()
                 jobs.append(q)
             with db.atomic():
-                PQueue.bulk_update(jobs, fields=["status"], batch_size=100)
-        if PQueue.select().where(PQueue.status == 0).count() > 0:
+                Job.bulk_update(jobs, fields=["status"], batch_size=100)
+        elif workers_count - queue.qsize() > 0:
+            additional_jobs = min(
+                Job.select().where(Job.status == 0).count(),
+                len(workers) - workers.pending.value,
+            )
+            if additional_jobs == 0:
+                continue
             jobs = []
             for job in (
-                PQueue.select()
-                .where(PQueue.status == 0)
-                .paginate(1, workers_cnt)
+                Job.select()
+                .where(Job.status == 0)
+                .paginate(1, additional_jobs)
             ):
                 job.status = 1
                 jobs.append(job)
             with db.atomic():
-                PQueue.bulk_update(jobs, fields=["status"], batch_size=100)
+                Job.bulk_update(jobs, fields=["status"], batch_size=100)
             for job in jobs:
                 queue.put(job)
-
-
-def workers(workers_cnt=3):
-    if db.is_closed():
-        db.connect()
-    queue = JoinableQueue()
-    db_queue = Queue()
-
-    workers = []
-    for i in range(workers_cnt):
-        worker = Process(target=process_job, args=(queue, db_queue))
-        worker.daemon = True
-        worker.start()
-        workers.append(worker)
-
-    db_worker = Process(
-        target=database_worker, args=(workers_cnt, queue, db_queue)
-    )
-    db_worker.daemon = True
-    db_worker.start()
-
-    import time
-
-    time.sleep(2)
 
     queue.join()
     db.close()

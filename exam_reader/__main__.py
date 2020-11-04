@@ -1,6 +1,6 @@
 import sys
 
-from .pdf_reader import main
+from .cli import cli
 
 if __name__ == "__main__":
-    sys.exit(main())  # pragma: no cover
+    sys.exit(cli())
