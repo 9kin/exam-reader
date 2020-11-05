@@ -1,11 +1,9 @@
 from os import system
 from pathlib import Path
 
-import isort
-
-
-def main():
-    APP_DIR = Path(__file__).resolve().parent
+def lint():
+    import isort
+    APP_DIR = Path(__file__).resolve().parent.parent
     DOCS_DIR = Path(__file__).resolve().parent.joinpath("docs")
     PY_APP_DIR = APP_DIR.joinpath("exam_reader")
 
@@ -18,7 +16,3 @@ def main():
     for file in files:
         isort.file(file)
         system(f"black {file} --line-length 79")
-
-
-if __name__ == "__main__":
-    main()

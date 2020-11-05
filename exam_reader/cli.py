@@ -6,6 +6,7 @@ from pathlib import Path
 import click
 
 from .database import Job, db
+from .lint import lint
 from .pdf_reader import pdf_workers
 from .utils import add_files
 
@@ -74,8 +75,11 @@ def debug_worker():
     show("exam_reader worker -c 2 -d")
 
 
+@cli.command("lint")
+def lint_command():
+    lint()
+
+
 """
 termtosvg docs/source/static/debug_worker_speed.svg --command='python3 -m exam_reader debug-worker-speed' --screen-geometry=80x3
-
-
 """

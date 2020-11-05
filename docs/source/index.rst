@@ -50,7 +50,8 @@ Exam-reader – программа для извлечения и обработ
 * `PyMupdf <https://github.com/pymupdf/PyMuPDF>`_ привязки Python для библиотеки рендеринга `MuPDF <https://mupdf.com>`_. Основная функция (которой нет у подобных библиотек) - `извлечение блоков текста <https://pymupdf.readthedocs.io/en/latest/textpage.html#TextPage.extractBLOCKS>`_.
 * `peewee <https://github.com/coleifer/peewee>`_ очень удобная ORM (поддерживает postgres).
 * `flask  <https://github.com/pallets/flask>`_  микро-фреймворк для создания веб-приложений.
-
+* `click  <https://github.com/pallets/click>`_ очень удобная библиотека для создание интерфейсов командной строки.
+* `tqdm  <https://github.com/tqdm/tqdm>`_ отличный прогрессбар.
 
 Task (job)
 ===========
@@ -107,6 +108,14 @@ TODO !! condition (sigkill) gif как в `dramatiq <https://dramatiq.io/>`_
     python3 -m exam_reader worker -c 2 -d -f 2
 
 .. image:: static/debug_worker_speed.svg
+
+⚙️ Installation
+
+Если есть ошибка ``Failed building wheel for PyMuPDF`` попробуйте обновить pip.
+
+.. code-block:: bash
+
+   pip3 install --upgrade setuptools pip
 
 
 Процесс разработки

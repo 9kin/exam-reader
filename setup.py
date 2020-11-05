@@ -1,14 +1,9 @@
 #!/usr/bin/env python
 
-"""The setup script."""
-
 from setuptools import find_packages, setup
 
 with open("README.rst") as readme_file:
     readme = readme_file.read()
-
-with open("HISTORY.rst") as history_file:
-    history = history_file.read()
 
 requirements = [
     "Click>=7.0",
@@ -16,14 +11,10 @@ requirements = [
     "pillow",
     "PyMuPDF",
     "opencv-python",
-]
-
-setup_requirements = [
-    "pytest-runner",
-]
-
-test_requirements = [
-    "pytest>=3",
+    "peewee",
+    "psycopg2",
+    "tqdm",
+    "click",
 ]
 
 setup(
@@ -44,19 +35,17 @@ setup(
     description="exam-reader",
     entry_points={
         "console_scripts": [
-            "exam_reader=exam_reader.cli:main",
+            "exam_reader=exam_reader.cli:cli",
         ],
     },
     install_requires=requirements,
     license="MIT license",
-    long_description=readme + "\n\n" + history,
+    long_description=readme,
     include_package_data=True,
     keywords="exam_reader",
     name="exam_reader",
     packages=find_packages(include=["exam_reader", "exam_reader.*"]),
-    setup_requires=setup_requirements,
     test_suite="tests",
-    tests_require=test_requirements,
     url="https://github.com/9kin/exam_reader",
     version="0.1.0",
     zip_safe=False,
