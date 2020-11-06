@@ -1,16 +1,18 @@
 from os import system
 from pathlib import Path
 
+
 def lint():
     import isort
-    APP_DIR = Path(__file__).resolve().parent.parent
-    DOCS_DIR = Path(__file__).resolve().parent.joinpath("docs")
-    PY_APP_DIR = APP_DIR.joinpath("exam_reader")
+
+    app_dir = Path(__file__).resolve().parent.parent
+    doc_dir = Path(__file__).resolve().parent.joinpath("docs")
+    source_dir = app_dir.joinpath("exam_reader")
 
     files = (
-        list(APP_DIR.glob("*.py"))
-        + list(DOCS_DIR.rglob("*.py"))
-        + list(PY_APP_DIR.glob("*.py"))
+        list(app_dir.glob("*.py"))
+        + list(doc_dir.rglob("*.py"))
+        + list(source_dir.glob("*.py"))
     )
 
     for file in files:

@@ -1,3 +1,5 @@
+from os import getenv
+
 from peewee import CharField, Model, SmallIntegerField
 from playhouse.postgres_ext import PostgresqlExtDatabase
 
@@ -8,16 +10,27 @@ from playhouse.postgres_ext import PostgresqlExtDatabase
 # sudo service postgresql restart
 # psql -U exam postgres
 
-db = PostgresqlExtDatabase("postgres", user="exam", password="1234")
+
+db = PostgresqlExtDatabase(
+    getenv("DB_NAME"),
+    user=getenv("DB_USER"),
+    password=getenv("DB_PASSWORD"),
+    host=getenv("DB_HOST"),
+    port=getenv("DB_PORT"),
+)
 
 
 class BaseModel(Model):
-    """A base model that will use our Postgresql database"""
+    """A base model that will use our Postgresql database."""
 
     class Meta:
+        """Meta class."""
+
         database = db
 
 
 class Job(BaseModel):
+    """Job model for worker (like redis)"""
+
     path = CharField()
     status = SmallIntegerField()

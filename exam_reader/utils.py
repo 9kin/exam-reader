@@ -1,7 +1,9 @@
-from random import randint
+from random import randint, seed
 from time import sleep
 
 from .database import Job, db
+
+seed(5)
 
 
 def add_files(files):

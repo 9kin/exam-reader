@@ -12,9 +12,10 @@ requirements = [
     "PyMuPDF",
     "opencv-python",
     "peewee",
-    "psycopg2",
+    "psycopg2-binary",
     "tqdm",
     "click",
+    "python-dotenv",
 ]
 
 setup(

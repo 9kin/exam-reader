@@ -1,28 +1,28 @@
 from tqdm import tqdm
 
 
-class Bar:
+class ProcessBar:
     def __init__(self, items, debug=True):
         if debug:
-            self.bar = tqdm(
+            self.progress_bar = tqdm(
                 total=items,
                 ascii=" ━",
                 bar_format="{percentage:.0f}%|{rate_fmt}|\x1b[31m{bar}\x1b[0m| {n_fmt}/{total_fmt} [{elapsed}<{remaining}",
             )
-        self.val = 0
+        self.value = 0
         self.debug = debug
 
     def __iter__(self):
-        return self.bar.__iter__()
+        return self.progress_bar.__iter__()
 
-    def set_description(self, s):
+    def set_description(self, description):
         if self.debug:
-            self.bar.set_description(s)
+            self.progress_bar.set_description(description)
 
-    def update(self, n=1):
+    def update(self, modify=1):
         if self.debug:
-            self.val += n
-            self.bar.update(n)
+            self.value += modify
+            self.progress_bar.update(modify)
 
 
-__all__ = ["Bar"]
+__all__ = ["ProcessBar"]

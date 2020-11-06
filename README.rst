@@ -1,7 +1,10 @@
 exam-reader
 ===========
 
-.. image:: https://img.shields.io/badge/code%20style-black-000000.svg?style=flat-square&logo=appveyor)
+.. image:: https://img.shields.io/badge/style-wemake-000000.svg?style=flat-square
+   :target: https://github.com/wemake-services/wemake-python-styleguide
+
+.. image:: https://img.shields.io/badge/code%20style-black-000000.svg?style=flat-square
         :target: https://github.com/python/black
 
 .. image:: https://readthedocs.org/projects/exam-reader/badge/?version=latest&style=flat-square
@@ -115,7 +118,7 @@ TODO !! condition (sigkill) gif как в `dramatiq <https://dramatiq.io/>`_
 
 .. code-block:: bash
 
-   pip3 install --upgrade setuptools pip
+   pip3 install --upgrade pip
 
 Процесс разработки
 ========================

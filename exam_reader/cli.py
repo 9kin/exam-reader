@@ -26,7 +26,7 @@ def cli(ctx):
 @click.option("-f", "--files", default=0, help="Number of files for debug.")
 def worker(count, debug, files):
     if files != 0:
-        add_files([dir.joinpath("files", "ege2016.pdf")] * files)
+        add_files([dir.joinpath("files", "ege2016rus.pdf")] * files)
     pdf_workers(workers_count=count, debug=debug, files=files)
 
 
@@ -43,21 +43,21 @@ def add(files):
 
 
 PROMPT = "❯"
+CHAR_SLEEP = 0.05
 
 
-def slowprint(s):
-    for c in s + "\n":
-        sys.stdout.write(c)
+def slowprint(command):
+    for char in command + "\n":
+        sys.stdout.write(char)
         sys.stdout.flush()
-        time.sleep(0.05)
+        time.sleep(CHAR_SLEEP)
 
 
 def show(command, execute=True):
-    print(PROMPT, end=" ")
     slowprint(command)
     if execute:
         start = time.time()
-        subprocess.call("python3 -m " + command, shell=True)
+        subprocess.call(["python3", "-m", *command.split()])
         print(f"took {int(time.time()  - start)}s", end="")
 
 
@@ -81,5 +81,7 @@ def lint_command():
 
 
 """
-termtosvg docs/source/static/debug_worker_speed.svg --command='python3 -m exam_reader debug-worker-speed' --screen-geometry=80x3
+termtosvg docs/source/static/debug_worker_speed.svg \
+    --command='python3 -m exam_reader debug-worker-speed' \
+    --screen-geometry=80x3
 """

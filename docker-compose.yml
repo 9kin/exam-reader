@@ -1,0 +1,16 @@
+version: "3"
+
+services:
+    db:
+        image: postgres
+        restart: always
+        environment:
+            POSTGRES_USER: "exam"
+            POSTGRES_PASSWORD: 1234
+            POSTGRES_DB: "test"
+
+    pdf:
+        build: .
+        command: python3 -m exam_reader worker -c 2 -d -f 2
+        depends_on:
+          - db
